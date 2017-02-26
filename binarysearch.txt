@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+int main(){
+int n;
+cout<<"enter the no of elements"<<endl;
+cin>>n;
+int a[n],i,j,k;
+cout<<"Enter the elements:"<<endl;
+for(i=0;i<n;i++)
+cin>>a[i];
+int ship=0,low=0,key,high=n,med;
+cout<<"enter the element to be searched:"<<endl;
+cin>>key;
+while(low<=high)
+{
+med=(low+high)/2;
+if(a[med]==key)
+{
+ship=1;
+cout<<"element is at position"<<med<<endl;
+break;
+}
+else if(key<a[med])
+{
+high=med-1;
+//low=0;
+}
+else {low=med+1;//high=n-1;
+}
+}
+if(ship==1)
+cout<<"Element found ";
+else cout<<"Element Not Found";
+return 0;
+}
