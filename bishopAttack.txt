@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+int main(){
+        int i,j,x,y,k,n;
+        cin>>n;
+        int bishops,b[n][n],a[n][n];
+for(i=1;i<=n;i++)
+for(j=1;j<=n;j++){
+a[i][j]=0;b[i][j]=0;}
+cin>>bishops;
+        for(i=1;i<=bishops;i++)
+        {
+        cin>>x>>y;
+        a[x][y]=1;
+        b[x][y]=1;
+        }
+        int count1=0,ans=0,count2=0;
+
+        for(i=1;i<n;i++)
+        {
+                for(j=1;j<n;j++)
+                {
+                x=i;
+                y=j;
+                count1=0;
+                while(x<=n&&y<=n)
+                {
+                if(a[x][y]==1)
+                {
+//              cout<<x<<" "<<y<<a[x][y]<<endl;
+                a[x][y]=0;
+                count1++;
+                }
+                x++;y++;
+                }
+                ans+=(count1*(count1-1))/2;
+                //cout<<ans<<endl;
+                 }
+        }
+        for(i=n;i>1;i--)
+        {
+                for(j=1;j<n;j++)
+                {
+                x=i;
+                y=j;
+                count2=0;
+                while(x>=1&&y<=n)
+                {
+                if(b[x][y]==1)
+                {
+//              cout<<x<<" "<<y<<b[x][y]<<endl;
+                b[x][y]=0;
+                count2++;
+                }
+                x--;y++;
+                }
+                ans+=((count2)*(count2-1))/2;
+                //cout<<ans<<endl;
+                }
+        }
+        //cout<<count1<<endl<<count2;
+cout<<ans<<endl;
+        return 0;
+}
+
