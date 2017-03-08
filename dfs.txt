@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int visit[10],a[10][10],x,y,vertices,edges,i,j;
+
+void dfs(int v){
+        int i,n,j;
+
+
+visit[v]=1;
+for(i=1;i<=vertices;i++)
+        {
+        if(visit[i]==0&&a[v][i]==1)
+{
+        cout<<v<<"->"<<i<<endl;
+        dfs(i);
+}
+
+
+
+}
+}
+
+
+int main()
+{
+//int vertices,edges,i,j,x,y;
+cin>>vertices>>edges;
+//int a[vertices][vertices],visit[vertices];
+for(i=1;i<=vertices;i++)
+{visit[i]=0;for(j=1;j<=vertices;j++)
+a[i][j]=0;}
+for(i=1;i<=edges;i++)
+{cin>>x>>y;
+a[x][y]=1;
+}
+for(i=1;i<=edges;i++)
+dfs(i);
+        return 0;
+}
