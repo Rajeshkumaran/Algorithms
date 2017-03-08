@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+int count=0,queue[100],front=-1,rear=-1,k=0,temp=1,visit[100],a[100][100],x,y,vertices,edges,i,j;
+//queue[0]=1;
+void push(int p){
+queue[++front]=p;
+}
+int pop(){
+//count++;
+return queue[++rear];
+}
+void bfs(){
+        int check,i,n,j;
+        check=edges;
+        while(check--){
+        i=pop();        
+        visit[i]=1;
+        for(j=1;j<=vertices;j++)
+        {
+        if(visit[j]==0&&a[i][j]==1)
+        {
+        cout<<i<<"->"<<j;
+        visit[j]=1;push(j);
+        }
+        }
+
+
+}
+        }
+
+int main()
+{
+cin>>vertices>>edges;
+for(i=1;i<=vertices;i++)
+{visit[i]=0;for(j=1;j<=vertices;j++)
+a[i][j]=0;}
+for(i=1;i<=edges;i++)
+{cin>>x>>y;
+a[x][y]=1;
+a[y][x]=1;}
+push(1);
+bfs();
+return 0;
+}
